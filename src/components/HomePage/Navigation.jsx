@@ -11,7 +11,7 @@ export function Navigation() {
             <img
               // src="https://raw.createusercontent.com/7ae064c0-e76c-497a-aa8e-76deffe0c665/"
               src="https://codeadapters.s3.ap-south-1.amazonaws.com/logo/ChatGPT+Image+Dec+2%2C+2025%2C+03_13_03+PM.png"
-              alt="Code Adapter Logo"
+              alt="Code Adapters Logo"
               className="h-10 w-10"
             />
             <span className="font-bold text-xl bg-gradient-to-r from-blue-400 to-orange-500 bg-clip-text text-transparent hidden sm:inline">

@@ -11,10 +11,10 @@ export function Footer() {
               <img
                 // src="https://raw.createusercontent.com/7ae064c0-e76c-497a-aa8e-76deffe0c665/"
                 src="https://codeadapters.s3.ap-south-1.amazonaws.com/logo/ChatGPT+Image+Dec+2%2C+2025%2C+03_13_03+PM.png"
-                alt="Code Adapter Technologies"
+                alt="Code Adapters Technologies"
                 className="h-8 w-8"
               />
-              <span className="font-bold text-lg">Code Adapter</span>
+              <span className="font-bold text-lg">Code Adapters</span>
             </div>
             <p className="text-blue-200 mb-4">
               Bridging your vision with the right technology stack through
@@ -89,7 +89,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-blue-900/30 mt-12 pt-8 text-center text-blue-300">
-          <p>&copy; 2025 Code Adapter Technologies. All rights reserved.</p>
+          <p>&copy; 2025 Code Adapters Technologies. All rights reserved.</p>
         </div>
       </div>
     </footer>

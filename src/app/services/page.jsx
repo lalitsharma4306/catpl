@@ -32,7 +32,7 @@ export default function ServicesPage() {
       name: "Sarah Chen",
       role: "CTO, FinanceFlow",
       content:
-        "Code Adapter's strategic guidance helped us choose the perfect tech stack. Our development velocity increased by 60%.",
+        "Code Adapters' strategic guidance helped us choose the perfect tech stack. Our development velocity increased by 60%.",
       rating: 5,
     },
     {
@@ -481,7 +481,7 @@ export default function ServicesPage() {
                   alt="Code Adapters Technologies"
                   className="h-8 w-8"
                 />
-                <span className="font-bold text-lg">Code Adapter</span>
+                <span className="font-bold text-lg">Code Adapters</span>
               </div>
               <p className="text-gray-400 mb-4">
                 Bridging your vision with the right technology stack through
@@ -544,7 +544,7 @@ export default function ServicesPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Code Adapter Technologies. All rights reserved.</p>
+            <p>&copy; 2024 Code Adapters Technologies. All rights reserved.</p>
           </div>
         </div>
       </footer>

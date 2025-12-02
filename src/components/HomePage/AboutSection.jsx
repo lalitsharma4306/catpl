@@ -12,7 +12,7 @@ export function AboutSection({ setSectionRef, visibleSections }) {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-300 to-orange-400 bg-clip-text text-transparent mb-4">
-              About Code Adapter
+              About Code Adapters
             </h2>
             <p className="text-xl text-blue-200">
               Bridging vision and technology since 2020
@@ -28,7 +28,7 @@ export function AboutSection({ setSectionRef, visibleSections }) {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-blue-100 text-lg mb-6 leading-relaxed">
-                At Code Adapter, we believe great technology should adapt to
+                At Code Adapters, we believe great technology should adapt to
                 your unique business needs, not the other way around. Our team
                 of expert engineers and strategists work collaboratively to
                 transform your vision into scalable, maintainable solutions.
