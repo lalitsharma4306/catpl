@@ -9,7 +9,8 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="https://raw.createusercontent.com/7ae064c0-e76c-497a-aa8e-76deffe0c665/"
+                // src="https://raw.createusercontent.com/7ae064c0-e76c-497a-aa8e-76deffe0c665/"
+                src="https://codeadapters.s3.ap-south-1.amazonaws.com/logo/ChatGPT+Image+Dec+2%2C+2025%2C+03_13_03+PM.png"
                 alt="Code Adapter Technologies"
                 className="h-8 w-8"
               />
