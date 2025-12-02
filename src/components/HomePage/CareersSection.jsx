@@ -31,7 +31,7 @@ export function CareersSection({ setSectionRef, visibleSections }) {
             {[
               {
                 role: "Senior Full-Stack Engineer",
-                location: "San Francisco, CA",
+                location: "Remote",
                 type: "Full-time",
                 experience: "5+ years",
               },
@@ -43,7 +43,7 @@ export function CareersSection({ setSectionRef, visibleSections }) {
               },
               {
                 role: "React Native Developer",
-                location: "San Francisco, CA",
+                location: "Remote",
                 type: "Full-time",
                 experience: "3+ years",
               },

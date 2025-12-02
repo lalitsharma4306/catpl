@@ -66,7 +66,162 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
 @import "tailwindcss";
+
+/* Responsive Typography */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Responsive Container */
+.container, .max-w-screen-lg, .max-w-screen-md, .max-w-screen-sm {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container, .max-w-screen-sm {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container, .max-w-screen-md {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container, .max-w-screen-lg {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container, .max-w-screen-xl {
+    max-width: 1280px;
+  }
+}
+
+/* Responsive Images */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Utility Classes */
+.responsive-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .responsive-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Responsive Section Padding */
+.section {
+  padding: 4rem 0;
+}
+@media (max-width: 1024px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+}
+@media (max-width: 480px) {
+  .section {
+    padding: 1rem 0;
+  }
+}
+
+/* Responsive Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+/* Responsive Footer */
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 1rem 0;
+  }
+}
+
+/* Responsive Buttons */
+.button {
+  padding: 0.75em 2em;
+  font-size: 1em;
+}
+@media (max-width: 480px) {
+  .button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+}
+
+/* Responsive Grid Example */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Hide scrollbars on mobile for overflow sections */
+@media (max-width: 768px) {
+  .overflow-scroll, .overflow-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .overflow-scroll::-webkit-scrollbar, .overflow-auto::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 /* @tailwind base;
 @tailwind components;

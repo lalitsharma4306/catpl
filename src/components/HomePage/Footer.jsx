@@ -81,9 +81,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-blue-300">Contact</h4>
             <ul className="space-y-2 text-blue-200">
-              <li>hello@codeadapter.tech</li>
+              <li>hello@codeadapters.com</li>
               <li>+91 (880) 072-5933</li>
-              <li>San Francisco, CA</li>
+              <li>Sector-122, Noida (201301), U.P.</li>
             </ul>
           </div>
         </div>
