@@ -66,7 +66,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-
 @import "tailwindcss";
 
 /* Responsive Typography */
@@ -228,4 +227,6 @@ img, video {
 @tailwind utilities; */
 #root {
   padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100vw !important;
 }
