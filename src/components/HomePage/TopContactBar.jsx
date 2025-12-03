@@ -22,11 +22,11 @@ export function TopContactBar() {
               <span className="truncate">info@codeadapters.com</span>
             </a>
             <a
-              href="tel:+918880072593"
+              href="tel:+918800725933"
               className="flex items-center text-blue-200 hover:text-orange-400 transition-colors whitespace-nowrap hover:scale-105 min-w-0"
             >
               <Phone className="h-4 w-4 mr-1 sm:mr-1.5 text-orange-500 flex-shrink-0" />
-              <span className="truncate">+91 (888) 007-25933</span>
+              <span className="truncate">+91 (88) 007-25933</span>
             </a>
           </div>
 
