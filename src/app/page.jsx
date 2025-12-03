@@ -25,36 +25,38 @@ export default function HomePage() {
       </div>
       <TopContactBar />
       <Navigation />
-      <HeroSection isVisible={isVisible} />
-      <SocialProofSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <ServicesSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <ProcessSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <CaseStudySection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <PortfolioSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <AboutSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <CareersSection
-        setSectionRef={setSectionRef}
-        visibleSections={visibleSections}
-      />
-      <Footer />
+      <div className="relative z-10 pt-[96px] sm:pt-[108px]">
+        <HeroSection isVisible={isVisible} />
+        <SocialProofSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <ServicesSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <ProcessSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <CaseStudySection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <PortfolioSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <AboutSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <CareersSection
+          setSectionRef={setSectionRef}
+          visibleSections={visibleSections}
+        />
+        <Footer />
+      </div>
       <GlobalStyles />
 
       {/* Add the CSS animations */}

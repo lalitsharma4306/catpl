@@ -1,75 +1,93 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll to adjust navbar styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <nav className="fixed top-10 left-0 right-0 z-40 bg-gray-950/95 backdrop-blur-md border-b border-blue-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
+    <nav 
+      className={`fixed top-[10px] sm:top-[36px] left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gray-950/98 border-b border-blue-900/70 shadow-lg" 
+          : "bg-gray-950/95 border-b border-blue-900/50"
+      } backdrop-blur-md`}
+    >
+      <div className="w-full px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
+        <div className="flex justify-between items-center py-3 h-16">
+          {/* Logo and Brand Section */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
             <img
-              // src="https://raw.createusercontent.com/7ae064c0-e76c-497a-aa8e-76deffe0c665/"
               src="https://codeadapters.s3.ap-south-1.amazonaws.com/logo/ChatGPT+Image+Dec+2%2C+2025%2C+03_13_03+PM.png"
               alt="Code Adapters Logo"
-              className="h-10 w-10"
+              className="h-10 w-10 object-contain flex-shrink-0"
             />
-            <span className="font-bold text-xl bg-gradient-to-r from-blue-400 to-orange-500 bg-clip-text text-transparent hidden sm:inline">
+            <span className="font-bold text-xs sm:text-sm md:text-lg lg:text-xl bg-gradient-to-r from-blue-400 to-orange-500 bg-clip-text text-transparent inline whitespace-nowrap truncate max-w-[120px] sm:max-w-none">
               CODE ADAPTERS
             </span>
           </div>
+
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#home"
-              className="text-blue-200 font-semibold hover:text-orange-400 transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#services"
-              className="text-blue-200 hover:text-orange-400 transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#portfolio"
-              className="text-blue-200 hover:text-orange-400 transition-colors"
-            >
-              Portfolio
-            </a>
-            <a
-              href="#about"
-              className="text-blue-200 hover:text-orange-400 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#careers"
-              className="text-blue-200 hover:text-orange-400 transition-colors"
-            >
-              Careers
-            </a>
+          <div className="hidden lg:flex items-center gap-6">
+            {[
+              { href: "#home", label: "Home", isActive: true },
+              { href: "#services", label: "Services" },
+              { href: "#portfolio", label: "Portfolio" },
+              { href: "#about", label: "About" },
+              { href: "#careers", label: "Careers" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`text-base font-medium transition-colors duration-200 hover:text-orange-400 ${
+                  item.isActive ? "text-blue-200 font-semibold" : "text-blue-300"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
             <a
               href="#contact"
-              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg text-base font-medium hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-200 hover:scale-105 flex-shrink-0"
             >
               Contact
             </a>
           </div>
-          {/* Mobile Hamburger */}
-          <div className="md:hidden flex items-center">
+
+          {/* Mobile Menu Toggle Button */}
+          <div className="lg:hidden flex items-center">
             <button
-              onClick={() => setMobileMenuOpen((open) => !open)}
-              className="text-blue-200 hover:text-orange-400 focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex flex-col justify-center items-center gap-1.5 p-1.5 text-blue-200 hover:text-orange-400 focus:outline-none transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               <svg
-                className="h-8 w-8"
+                className={`h-6 w-6 transition-transform duration-300 ${
+                  mobileMenuOpen ? "rotate-90" : "rotate-0"
+                }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 {mobileMenuOpen ? (
                   <path
@@ -90,47 +108,33 @@ export function Navigation() {
             </button>
           </div>
         </div>
+
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden flex flex-col items-start space-y-2 mt-2 bg-gray-950/95 rounded-lg shadow-lg p-4 border border-blue-900/50 animate-fade-in">
-            <a
-              href="#home"
-              className="w-full text-blue-200 font-semibold hover:text-orange-400 transition-colors py-1"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#services"
-              className="w-full text-blue-200 hover:text-orange-400 transition-colors py-1"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#portfolio"
-              className="w-full text-blue-200 hover:text-orange-400 transition-colors py-1"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Portfolio
-            </a>
-            <a
-              href="#about"
-              className="w-full text-blue-200 hover:text-orange-400 transition-colors py-1"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#careers"
-              className="w-full text-blue-200 hover:text-orange-400 transition-colors py-1"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Careers
-            </a>
+          <div className="lg:hidden flex flex-col gap-1 py-2 border-t border-blue-900/30 animate-fade-in">
+            {[
+              { href: "#home", label: "Home", isActive: true },
+              { href: "#services", label: "Services" },
+              { href: "#portfolio", label: "Portfolio" },
+              { href: "#about", label: "About" },
+              { href: "#careers", label: "Careers" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`px-4 py-2 text-sm rounded-md transition-colors duration-200 hover:bg-blue-900/40 hover:text-orange-400 ${
+                  item.isActive
+                    ? "text-blue-100 font-semibold"
+                    : "text-blue-300"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
             <a
               href="#contact"
-              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all mt-2"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-200 hover:scale-105 m-1 text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
@@ -138,14 +142,35 @@ export function Navigation() {
           </div>
         )}
       </div>
-      {/* Simple fade-in animation for mobile menu */}
+
+      {/* Animations and responsive utilities */}
       <style jsx>{`
         .animate-fade-in {
-          animation: fadeIn 0.2s ease;
+          animation: fadeIn 0.25s ease-out;
         }
+
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Extra small screens adjustments */
+        @media (max-width: 360px) {
+          .nav-compress {
+            max-width: 100%;
+            overflow: hidden;
+          }
         }
       `}</style>
     </nav>
