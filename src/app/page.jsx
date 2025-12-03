@@ -25,7 +25,7 @@ export default function HomePage() {
       </div>
       <TopContactBar />
       <Navigation />
-      <div className="relative z-10 pt-[96px] sm:pt-[108px]">
+      <div className="relative z-10 pt-[38px] sm:pt-[40px]">
         <HeroSection isVisible={isVisible} />
         <SocialProofSection
           setSectionRef={setSectionRef}

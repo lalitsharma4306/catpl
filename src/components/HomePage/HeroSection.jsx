@@ -4,7 +4,7 @@ export function HeroSection({ isVisible }) {
   return (
     <section
       id="home"
-      className="fixed top-0 relative min-h-screen flex items-center z-10 pt-16"
+      className="relative min-h-screen flex items-center z-10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         <div
