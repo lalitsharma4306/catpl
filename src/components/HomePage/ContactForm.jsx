@@ -56,11 +56,21 @@ export function ContactForm({ isOpen, onClose }) {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.fullName,
+          name: formData.fullName,
           from_email: formData.email,
           mobile: formData.mobile,
           message: formData.description,
           to_email: import.meta.env.VITE_EMAILJS_RECIPIENT_EMAIL,
+          message: `
+New Contact Form Submission:
+
+Name: ${formData.fullName}
+Email: ${formData.email}
+Mobile: ${formData.mobile}
+
+Message:
+${formData.description}
+  `.trim()
         }
       );
 
@@ -100,9 +110,9 @@ export function ContactForm({ isOpen, onClose }) {
           </button>
           <h2 className="text-2xl font-bold text-white mb-2">Get in Touch</h2>
           <p className="font-rethink text-sm sm:text-base text-[#707070] dark:text-gray-400 transition-colors duration-300 text-center">
-              Fill out the form below and we'll get back to you as soon as
-              possible.
-            </p>
+            Fill out the form below and we'll get back to you as soon as
+            possible.
+          </p>
         </div>
 
         {/* Form Content */}
@@ -174,11 +184,10 @@ export function ContactForm({ isOpen, onClose }) {
           {/* Submit Message */}
           {submitMessage && (
             <div
-              className={`p-3 rounded-lg text-sm ${
-                submitMessage.includes("success")
+              className={`p-3 rounded-lg text-sm ${submitMessage.includes("success")
                   ? "bg-green-900/30 text-green-300 border border-green-900/50"
                   : "bg-red-900/30 text-red-300 border border-red-900/50"
-              }`}
+                }`}
             >
               {submitMessage}
             </div>
